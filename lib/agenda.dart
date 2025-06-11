@@ -1,7 +1,7 @@
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//teste
+
 
 class agenda extends StatefulWidget {
   const agenda({super.key});
@@ -81,7 +81,7 @@ class _agendaState extends State<agenda> {
 
                   Container(
                   width: 400,
-                  height: 50,
+                  height: 40,
                   padding: EdgeInsets.only(right: 9, left: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
