@@ -66,7 +66,7 @@ class _agendaState extends State<agenda> {
                 children: [
                   Container(
                     width: 400,
-                    height: 70,
+                    height: 50,
                     padding: EdgeInsets.only(right: 14, left: 14, top: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,7 +81,7 @@ class _agendaState extends State<agenda> {
 
                   Container(
                   width: 400,
-                  height: 40,
+                  height: 25,
                   padding: EdgeInsets.only(right: 9, left: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -92,7 +92,15 @@ class _agendaState extends State<agenda> {
                     ],
                   ),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Divider(),
+                  Container(
+                    width: double.infinity,
+                    height: 350,
 
+                  ),
                 ],
               ),
             )
