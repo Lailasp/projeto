@@ -266,9 +266,35 @@ class _agendaState extends State<agenda> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
-                  Divider(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 125,
+                        height: 1,
+                        color: Colors.grey,
+                      ),
+                      Text("Agenda", style: TextStyle(color: Color(0xFF3d9aba),fontSize: 17, fontWeight: FontWeight.bold),),
+                      Container(
+                        width: 125,
+                        height: 1,
+                        color: Colors.grey,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 250,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [],
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )
