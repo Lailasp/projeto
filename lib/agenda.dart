@@ -55,9 +55,10 @@ class _agendaState extends State<agenda> {
             SizedBox(
               height: 20,
             ),
+
             Container(
               width: double.infinity,
-              height: 720,
+              height: 699,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.white,
@@ -98,9 +99,176 @@ class _agendaState extends State<agenda> {
                   Divider(),
                   Container(
                     width: double.infinity,
-                    height: 350,
+                    height: 275,
+                    padding: EdgeInsets.only(left: 7),
 
+                    child: Column(
+
+                      children: [
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("07:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("08:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("09:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("10:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("11:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("12:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("13:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("14:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("15:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  padding: EdgeInsets.only(left: 3),
+                                  height: 25,
+                                  width: 340,
+                                  color: Color(0xFF87a8f2),
+                                  child:
+                                  Text("Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("16:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("17:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  padding: EdgeInsets.only(left: 3),
+                                  height: 25,
+                                  width: 340,
+                                  color: Color(0xFFe9dd8b),
+                                  child:
+                                  Text("Paclitaxel", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("18:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  height: 5,
+                                  width: 340,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("19:00", style: TextStyle(color: Colors.black)),
+                                Container(
+                                  padding: EdgeInsets.only(left: 3),
+                                  height: 25,
+                                  width: 340,
+                                  color: Color(0xFFbeffab),
+                                  child:
+                                  Text("Pneumologista", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+
+                      ],
+                    ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Divider(),
                 ],
               ),
             )
