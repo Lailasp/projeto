@@ -285,13 +285,118 @@ class _agendaState extends State<agenda> {
                     ],
                   ),
                   Container(
+                    padding: EdgeInsets.only(top: 10, left: 35, right: 35),
                     width: double.infinity,
                     height: 250,
                     child: Column(
                       children: [
                         Row(
-                          children: [],
-                        )
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+
+                              width: 90,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFbeffab),
+                                borderRadius: BorderRadius.circular(40)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.stethoscope),
+                                    color: Colors.black,
+                                    iconSize: 35,
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
+                              ),
+                            Container(
+
+                              width: 90,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFF87a8f2),
+                                  borderRadius: BorderRadius.circular(40)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.hospitalUser),
+                                    color: Colors.black,
+                                    iconSize: 35,
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                         children: [
+                           Text("    Consulta", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
+                           Text("    Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
+                         ], 
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+
+                              width: 90,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFdeaac9),
+                                  borderRadius: BorderRadius.circular(40)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.userDoctor),
+                                    color: Colors.black,
+                                    iconSize: 50,
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+
+                              width: 90,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFe9dd8b),
+                                  borderRadius: BorderRadius.circular(40)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.pills),
+                                    color: Colors.black,
+                                    iconSize: 40,
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("   Exame", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
+                            Text("   Remédio", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
+                          ],
+                        ),
                       ],
                     ),
                   ),
