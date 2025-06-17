@@ -58,12 +58,12 @@ class _agendaState extends State<agenda> {
 
             Container(
               width: double.infinity,
-              height: 699,
+              height: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.white,
               ),
-              child: Column(
+              child: ListView(
                 children: [
                   Container(
                     width: 400,
@@ -340,7 +340,7 @@ class _agendaState extends State<agenda> {
                          children: [
                            Text("    Consulta", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
                            Text("    Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
-                         ], 
+                         ],
                         ),
                         SizedBox(
                           height: 10,
