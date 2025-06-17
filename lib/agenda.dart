@@ -10,34 +10,34 @@ class agenda extends StatefulWidget {
   @override
   State<agenda> createState() => _agendaState();
 }
-//asdasd
+
 
 class _agendaState extends State<agenda> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xFF3D9ABA),
-        body: buildBody(),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-          child: SlidingClippedNavBar(
-          backgroundColor: Colors.white,
-          onButtonPressed: (index) {},
-          iconSize: 25,
-          //activeColor: Color(0xFFC3EBF8),
-          activeColor: Color(0xFF3D9ABA),
-          selectedIndex: selectedIndex,
-          barItems: [
-            BarItem(icon: FontAwesomeIcons.house, title: 'Diário'),
-            BarItem(icon: FontAwesomeIcons.solidCalendarDays, title: 'Agenda'),
-            BarItem(icon: FontAwesomeIcons.solidMessage, title: 'Mensagens'),
-            BarItem(icon: FontAwesomeIcons.solidCircleUser, title: 'Perfil'),
-          ],
-        ),
-      ),
-      )
+        child: Scaffold(
+          backgroundColor: Color(0xFF3D9ABA),
+          body: buildBody(),
+          bottomNavigationBar: ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+            child: SlidingClippedNavBar(
+              backgroundColor: Colors.white,
+              onButtonPressed: (index) {},
+              iconSize: 25,
+              //activeColor: Color(0xFFC3EBF8),
+              activeColor: Color(0xFF3D9ABA),
+              selectedIndex: selectedIndex,
+              barItems: [
+                BarItem(icon: FontAwesomeIcons.house, title: 'Diário'),
+                BarItem(icon: FontAwesomeIcons.solidCalendarDays, title: 'Agenda'),
+                BarItem(icon: FontAwesomeIcons.solidMessage, title: 'Mensagens'),
+                BarItem(icon: FontAwesomeIcons.solidCircleUser, title: 'Perfil'),
+              ],
+            ),
+          ),
+        )
     );
   }
 
@@ -58,7 +58,7 @@ class _agendaState extends State<agenda> {
 
             Container(
               width: double.infinity,
-              height: double.infinity,
+              height: 600,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.white,
@@ -81,17 +81,17 @@ class _agendaState extends State<agenda> {
                   Divider(),
 
                   Container(
-                  width: 400,
-                  height: 25,
-                  padding: EdgeInsets.only(right: 9, left: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("14", style: TextStyle(color: Color(0xFF3d9aba),)),
-                      Text("ABRIL", style:TextStyle(color: Color(0xFF3d9aba),fontSize: 20.0, fontWeight: FontWeight.bold)),
-                      Text("2025", style: TextStyle(color: Color(0xFF3d9aba),)),
-                    ],
-                  ),
+                    width: 400,
+                    height: 25,
+                    padding: EdgeInsets.only(right: 9, left: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("14", style: TextStyle(color: Color(0xFF3d9aba),)),
+                        Text("ABRIL", style:TextStyle(color: Color(0xFF3d9aba),fontSize: 20.0, fontWeight: FontWeight.bold)),
+                        Text("2025", style: TextStyle(color: Color(0xFF3d9aba),)),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 5,
@@ -298,8 +298,8 @@ class _agendaState extends State<agenda> {
                               width: 90,
                               height: 90,
                               decoration: BoxDecoration(
-                                color: Color(0xFFbeffab),
-                                borderRadius: BorderRadius.circular(40)
+                                  color: Color(0xFFbeffab),
+                                  borderRadius: BorderRadius.circular(40)
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -312,7 +312,7 @@ class _agendaState extends State<agenda> {
                                   )
                                 ],
                               ),
-                              ),
+                            ),
                             Container(
 
                               width: 90,
@@ -337,10 +337,10 @@ class _agendaState extends State<agenda> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                         children: [
-                           Text("    Consulta", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
-                           Text("    Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
-                         ],
+                          children: [
+                            Text("    Consulta", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
+                            Text("    Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
+                          ],
                         ),
                         SizedBox(
                           height: 10,
@@ -411,5 +411,3 @@ class _agendaState extends State<agenda> {
 
 
 }
-
-
