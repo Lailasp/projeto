@@ -1,4 +1,6 @@
-import 'package:projeto/domain/propriedade.dart';
+
+
+import '../domain/propriedade.dart' show Propriedade;
 
 class Database {
   static List propriedades = [
