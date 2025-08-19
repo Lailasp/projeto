@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:projeto/pages/home_page.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projeto/pages/explore_page.dart';
+
 
 class MensagensPage extends StatefulWidget {
   const MensagensPage({super.key});
@@ -16,14 +16,12 @@ class _MensagensPageState extends State<MensagensPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF3D9ABA),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF3D9ABA),
-        title: Text('Mensagens'),
-        elevation: 0,
-      ),
+      //appBar: AppBar(
+        //backgroundColor: Color(0xFF3D9ABA),
+      //),
       body: Column(
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           Text(
             "Mensagens",
             style: TextStyle(
@@ -38,7 +36,7 @@ class _MensagensPageState extends State<MensagensPage> {
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(30)),
               ),
-              margin: EdgeInsets.only(top: 10, bottom: 20, left: 7, right: 7),
+              margin: EdgeInsets.only(top: 10, bottom: 10, left: 7, right: 7),
               padding: EdgeInsets.all(5),
               child: ListView(
                 children: [
