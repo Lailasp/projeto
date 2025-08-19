@@ -1,6 +1,6 @@
+import 'package:projeto/db/database.dart' show Database;
 import 'package:projeto/widgets/card_propriedade.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto/db/database.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
