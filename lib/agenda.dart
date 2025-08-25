@@ -65,12 +65,15 @@ class _agendaState extends State<agenda> {
               child: ListView(
                 children: [
                   Container(
-                    width: 400,
+                    width: double.infinity,
                     height: 50,
                     padding: EdgeInsets.only(right: 14, left: 14, top: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
+                        SizedBox(
+                          height: 10,
+                        ),
                         TextButton(onPressed: () {}, child: Text("Dia", style: TextStyle(color: Color(0xFF3d9aba), fontSize: 20.0),)),
                         TextButton(onPressed: () {}, child: Text("Semana", style: TextStyle(color: Color(0xFF3d9aba),fontSize: 20.0),)),
                         TextButton(onPressed: () {}, child: Text("Mês", style: TextStyle(color: Color(0xFF3d9aba),fontSize: 20.0),))
