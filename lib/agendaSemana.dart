@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
-// 1. ADICIONE OS IMPORTS NECESSÁRIOS
 import 'package:projeto/domain/agendamento.dart';
 import 'package:projeto/db/agendamentos_dao.dart';
 import 'package:projeto/widgets/card_agendamento.dart';
@@ -20,9 +19,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
 
 
   List<Agendamento> agendamentosDoDia = [];
-  bool isLoading = true; // Controla a exibição do "carregando"
 
-  // 3. CARREGUE OS DADOS AO INICIAR A TELA
   @override
   void initState() {
     super.initState();
@@ -30,13 +27,12 @@ class _AgendaSemanaState extends State<AgendaSemana> {
   }
 
   _loadAgendamentos() async {
-    // Busca os agendamentos para a data específica
+
     String dataSelecionada = "2025-04-14";
     agendamentosDoDia = await AgendamentosDao().getAgendamentosPorData(dataSelecionada);
 
-    // Avisa ao Flutter que os dados chegaram e a tela precisa ser redesenhada
+
     setState(() {
-      isLoading = false;
     });
   }
 
@@ -105,27 +101,9 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                         SizedBox(
                           height: 10,
                         ),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Dia",
-                              style: TextStyle(
-                                  color: Color(0xFF3d9aba), fontSize: 20.0),
-                            )),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Semana",
-                              style: TextStyle(
-                                  color: Color(0xFF3d9aba), fontSize: 20.0),
-                            )),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Mês",
-                              style: TextStyle(
-                                  color: Color(0xFF3d9aba), fontSize: 20.0),
-                            ))
+                        TextButton(onPressed: () {}, child: Text("Dia", style: TextStyle(color: Color(0xFF3d9aba), fontSize: 20.0),)),
+                        TextButton(onPressed: () {}, child: Text("Semana", style: TextStyle(color: Color(0xFF3d9aba), fontSize: 20.0),)),
+                        TextButton(onPressed: () {}, child: Text("Mês", style: TextStyle(color: Color(0xFF3d9aba), fontSize: 20.0),))
                       ],
                     ),
                   ),
@@ -137,22 +115,9 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(
-                          "14",
-                          style: TextStyle(
-                            color: Color(0xFF3d9aba),
-                          ),
-                        ),
-                        Text("ABRIL",
-                            style: TextStyle(
-                                color: Color(0xFF3d9aba),
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold)),
-                        Text(
-                          "2025",
-                          style: TextStyle(
-                            color: Color(0xFF3d9aba),
-                          ),
+                        Text("14",style: TextStyle(color: Color(0xFF3d9aba),),),
+                        Text("ABRIL",style: TextStyle(color: Color(0xFF3d9aba),fontSize: 20.0,fontWeight: FontWeight.bold)),
+                        Text("2025", style: TextStyle(color: Color(0xFF3d9aba),),
                         ),
                       ],
                     ),
@@ -198,18 +163,14 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                   ),
                   SizedBox(height: 15),
 
-                  // 4. SUBSTITUA O CONTAINER ANTIGO PELA LISTA DO BANCO DE DADOS
                   Container(
                     width: double.infinity,
                     height: 275,
-                    child: isLoading
-                        ? Center(child: CircularProgressIndicator()) // Mostra "carregando..."
-                        : ListView.builder(
+                    child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: agendamentosDoDia.length,
-                      itemBuilder: (context, index) {
-                        final agendamento = agendamentosDoDia[index];
-                        return CardAgendamento(agendamento: agendamento);
+                      itemBuilder: (context, i) {
+                        return CardAgendamento(agendamento: agendamentosDoDia[i]);
                       },
                     ),
                   ),

@@ -7,6 +7,8 @@ class DBHelper {
     String dbName = 'agenda_medica.db';
     String dbPath = join(path, dbName);
 
+    await deleteDatabase(dbPath);
+
     Database database = await openDatabase(
       dbPath,
       version: 1,

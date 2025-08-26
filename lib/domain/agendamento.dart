@@ -17,13 +17,4 @@ class Agendamento {
     data = json['data'];
     detalhes = json['detalhes'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['titulo'] = this.titulo;
-    data['data'] = this.data;
-    data['detalhes'] = this.detalhes;
-    return data;
-  }
 }
