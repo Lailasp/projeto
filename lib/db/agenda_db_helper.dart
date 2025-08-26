@@ -38,5 +38,11 @@ class DBHelper {
 
     sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-14');";
     await db.execute(sql);
+
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-14');";
+    await db.execute(sql);
+
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-15');";
+    await db.execute(sql);
   }
 }

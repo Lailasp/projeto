@@ -6,7 +6,6 @@ import 'package:projeto/domain/agendamento.dart';
 import 'package:projeto/db/agendamentos_dao.dart';
 import 'package:projeto/widgets/card_agendamento.dart';
 
-
 class AgendaSemana extends StatefulWidget {
   const AgendaSemana({super.key});
 
@@ -30,7 +29,6 @@ class _AgendaSemanaState extends State<AgendaSemana> {
 
     String dataSelecionada = "2025-04-14";
     agendamentosDoDia = await AgendamentosDao().getAgendamentosPorData(dataSelecionada);
-
 
     setState(() {
     });
@@ -74,11 +72,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Agenda",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold)),
+            Text("Agenda", style: TextStyle(color: Colors.white, fontSize: 24.0, fontWeight: FontWeight.bold)),
             SizedBox(
               height: 20,
             ),
@@ -123,21 +117,73 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                     ),
                   ),
                   SizedBox(height: 15),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        _buildCalendarDay("DOM", "13", isSelected: false),
-                        _buildCalendarDay("SEG", "14", isSelected: true),
-                        _buildCalendarDay("TER", "15", isSelected: false),
-                        _buildCalendarDay("QUA", "16", isSelected: false),
-                        _buildCalendarDay("QUI", "17", isSelected: false),
-                        _buildCalendarDay("SEX", "18", isSelected: false),
-                        _buildCalendarDay("SAB", "19", isSelected: false),
-                      ],
-                    ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+
+                      Column(
+                        children: [
+                          Text("DOM", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("13", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF3D9ABA),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          children: [
+                            Text("SEG", style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("14", style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text("TER", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("15", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text("QUA", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("16", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text("QUI", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("17", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text("SEX", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("18", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text("SAB", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                          SizedBox(height: 8),
+                          Text("19", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                        ],
+                      ),
+                    ],
                   ),
+                ),
+
                   SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -163,6 +209,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                   ),
                   SizedBox(height: 15),
 
+                  //BANCO DE DADOS
                   Container(
                     width: double.infinity,
                     height: 275,
@@ -186,13 +233,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                         height: 1,
                         color: Colors.grey,
                       ),
-                      Text(
-                        "Agenda",
-                        style: TextStyle(
-                            color: Color(0xFF3d9aba),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      Text("Agenda", style: TextStyle(color: Color(0xFF3d9aba), fontSize: 17, fontWeight: FontWeight.bold),),
                       Container(
                         width: 125,
                         height: 1,
@@ -253,20 +294,8 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              "    Consulta",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
-                            ),
-                            Text(
-                              "    Quimioterapia",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
-                            )
+                            Text("    Consulta", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
+                            Text("    Quimioterapia", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),)
                           ],
                         ),
                         SizedBox(
@@ -316,19 +345,8 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              "   Exame",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
-                            ),
-                            Text(
-                              "   Remédio",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
+                            Text("   Exame", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),),
+                            Text("   Remédio", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),
                             )
                           ],
                         ),
@@ -342,38 +360,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
         ),
       ),
     );
-  } // <-- Fim do método buildBody
-
-  Widget _buildCalendarDay(String day, String date, {required bool isSelected}) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-      decoration: isSelected
-          ? BoxDecoration(
-        color: Color(0xFF3D9ABA),
-        borderRadius: BorderRadius.circular(12),
-      )
-          : null,
-      child: Column(
-        children: [
-          Text(
-            day,
-            style: TextStyle(
-              fontSize: 12,
-              color: isSelected ? Colors.white : Colors.grey,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            date,
-            style: TextStyle(
-              fontSize: 16,
-              color: isSelected ? Colors.white : Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
   }
+
+
 }
