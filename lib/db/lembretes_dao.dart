@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 class LembretesDao {
   Future<List<Lembretes>> listarLembretes() async {
     Database db = await DBHelper().initDB();
-    String sql = 'SELECT * FROM LmebretesDiario;';
+    String sql = 'SELECT * FROM LembretesDiario;';
     var result = await db.rawQuery(sql);
 
     List<Lembretes> listaLembretes = [];
