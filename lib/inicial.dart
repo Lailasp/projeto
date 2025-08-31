@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
+import 'package:projeto/domain/lembretes.dart';
+import 'package:projeto/db/lembretes_dao.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -11,6 +13,20 @@ class Inicial extends StatefulWidget {
 
 class _InicialState extends State<Inicial> {
   int selectedIndex = 0;
+  List<Lembretes> listaLembretes = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    final lembretesDoBanco = await LembretesDao().listarLembretes();
+    setState(() {
+      listaLembretes = lembretesDoBanco;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
