@@ -29,15 +29,15 @@ class DBHelper {
     await db.execute(sql);
 
     sql =
-    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('Quimioterapia', '15:00', 'https://cdn-icons-png.flaticon.com/512/1998/1998221.png');";
+    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('QUIMIOTERAPIA', '15:00', 'https://cdn-icons-png.flaticon.com/512/1998/1998221.png');";
     await db.execute(sql);
 
     sql =
-    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('Paclitaxel', '19:00', 'https://cdn-icons-png.flaticon.com/512/1998/1998221.png');";
+    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('PACLITAXEL', '19:00', 'https://cdn-icons-png.flaticon.com/512/1810/1810119.png');";
     await db.execute(sql);
 
     sql =
-    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('Consulta com pneumologista', '19:30', 'https://cdn-icons-png.flaticon.com/512/1998/1998221.png');";
+    "INSERT INTO LembretesDiario (nomeDoExame, horario, urlImage) VALUES ('PNEUMOLOGISTA', '19:30', 'https://cdn-icons-png.flaticon.com/512/10154/10154419.png');";
     await db.execute(sql);
   }
 }
