@@ -1,6 +1,6 @@
-# pmovel913
+# Projeto da disciplina Programação Móvel
 
-A new Flutter project.
+Projeto voltado a criação de um aplicativo com foco na área da saúde.
 
 ## Getting Started
 
