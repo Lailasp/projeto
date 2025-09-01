@@ -214,7 +214,6 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                     width: double.infinity,
                     height: 275,
                     child: ListView.builder(
-                      padding: EdgeInsets.zero,
                       itemCount: agendamentosDoDia.length,
                       itemBuilder: (context, i) {
                         return CardAgendamento(agendamento: agendamentosDoDia[i]);

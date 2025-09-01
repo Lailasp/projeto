@@ -16,10 +16,10 @@ class CardAgendamento extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(agendamento.titulo, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87,),
+          Text(agendamento.titulo, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black,),
           ),
           SizedBox(height: 4),
-          Text(agendamento.detalhes, style: TextStyle(fontSize: 14, color: Colors.grey[700],),
+          Text(agendamento.detalhes, style: TextStyle(fontSize: 14, color: Color(0xFF474343),),
           ),
         ],
       ),

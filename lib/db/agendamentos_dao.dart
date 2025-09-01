@@ -7,8 +7,8 @@ class AgendamentosDao {
   Future<List<Agendamento>> getAgendamentosPorData(String data) async {
     Database db = await DBHelper().initDB();
 
-    String sql = 'SELECT * FROM AGENDAMENTO WHERE data = ?;';
-    var result = await db.rawQuery(sql, [data]);
+    String sql = "SELECT * FROM AGENDAMENTO WHERE data = '$data'";
+    var result = await db.rawQuery(sql);
     print(result);
     List<Agendamento> lista = [];
     for (var json in result) {

@@ -30,19 +30,19 @@ class DBHelper {
     await db.execute(sql);
 
 
-    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Quimioterapia', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 15:00PM - 17:00PM', '2025-04-14');";
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Quimioterapia', 'Consultório do Buffon, Rua São Francisco n°2121, Arapiraca-AL | 15:00PM - 17:00PM', '2025-04-14');";
     await db.execute(sql);
 
     sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Paclitaxel', '19:00PM', '2025-04-14');";
     await db.execute(sql);
 
-    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-14');";
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Amaral, Rua Bela Vista n°21, Arapiraca-AL | 19:30PM', '2025-04-14');";
     await db.execute(sql);
 
-    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-14');";
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Cardiologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-14');";
     await db.execute(sql);
 
-    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Inexistente, Rua Bela Vista n°00, Arapiraca-AL | 19:30PM', '2025-04-15');";
+    sql = "INSERT INTO AGENDAMENTO (titulo, detalhes, data) VALUES ('Pneumologista', 'Consultório Amaral, Rua Bela Vista n°21, Arapiraca-AL | 19:30PM', '2025-04-15');";
     await db.execute(sql);
   }
 }
