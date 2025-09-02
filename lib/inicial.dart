@@ -279,8 +279,8 @@ class _InicialState extends State<Inicial> {
                       physics: NeverScrollableScrollPhysics(),
 
                       itemCount: listaLembretes.length,
-                      itemBuilder: (context, index) {
-                        final lembrete = listaLembretes[index];
+                      itemBuilder: (context, i) {
+                        final lembrete = listaLembretes[i];
 
                         return Container(
                           margin: const EdgeInsets.symmetric(vertical: 8),
