@@ -1,7 +1,7 @@
 class Propriedade {
-  String urlImage;
-  String nomeDR;
-  String mensagem;
+  late String urlImage;
+  late String nomeDR;
+  late String mensagem;
 
   Propriedade({
     required this.urlImage,
@@ -9,14 +9,21 @@ class Propriedade {
     required this.mensagem,
   });
 
-  factory Propriedade.fromJson(Map<String, dynamic> json) {
-    return Propriedade(
-      urlImage: json['urlImage'],
-      nomeDR: json['nomeDR'],
-      mensagem: json['mensagem'],
-    );
+  //fromJson = do banco
+  Propriedade.fromJson(Map<String, dynamic> json) {
+      urlImage = json['urlImage'];
+      nomeDR = json['nomeDR'];
+      mensagem = json['mensagem'];
   }
 
+
+
+
+
+
+
+
+  //não está em uso ainda
   Map<String, dynamic> toJson() {
     return {
       'urlImage': urlImage,
