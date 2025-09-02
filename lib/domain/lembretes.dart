@@ -15,12 +15,10 @@ class Lembretes {
     nomeDoExame = json['nomeDoExame'];
     horario = json['horario'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['urlImage'] = this.urlImage;
-    data['nomeDoExame'] = this.nomeDoExame;
-    data['horario'] = this.horario;
-    return data;
-  }
+/*
+  Dados tipo JSON:
+  'urlImage': 'https://cdn-icons-png.flaticon.com/512/1998/1998221.png',
+  'nomeDoExame': 'QUIMIOTERAPIA',
+  'horario': '15:00'
+ */
 }

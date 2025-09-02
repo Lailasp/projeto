@@ -277,8 +277,8 @@ class _InicialState extends State<Inicial> {
                     ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: listaLembretes.length,
 
+                      itemCount: listaLembretes.length,
                       itemBuilder: (context, index) {
                         final lembrete = listaLembretes[index];
 

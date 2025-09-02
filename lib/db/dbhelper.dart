@@ -12,10 +12,9 @@ class DBHelper {
     Database database = await openDatabase(
       dbPath,
       version: 1,
-      onCreate: onCreate,
+      onCreate: onCreate
     );
 
-    print(dbPath);
     return database;
   }
 
