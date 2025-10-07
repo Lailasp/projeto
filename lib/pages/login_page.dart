@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         body: Padding(
           padding: const EdgeInsets.all(32),
           child: Column(
@@ -26,14 +27,14 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Entre ou cadastre-se no PulmoVida',
+                'PulmoVida',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 24),
               TextField(
                 controller: userController,
                 decoration: InputDecoration(
-                  hintText: 'Usuário',
+                  hintText: 'E-mail',
                   focusedBorder: buildUserOutlineInputBorder(),
                   border: buildUserOutlineInputBorder(),
                 ),
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: onPressed,
                 child: Text(
-                  'Entrar',
+                  'Acessar',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -74,9 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: onPressedRegisterPage,
                 child: Text(
-                  'Cadastrar Usuário',
+                  'Criar conta',
                   style: TextStyle(
-                    backgroundColor: Color(0xFF3D9ABA),
+                    backgroundColor: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),

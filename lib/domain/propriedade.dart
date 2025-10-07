@@ -18,11 +18,6 @@ class Propriedade {
 
 
 
-
-
-
-
-
   //não está em uso ainda
   Map<String, dynamic> toJson() {
     return {

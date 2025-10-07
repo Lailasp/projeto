@@ -44,11 +44,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFE395C),
+      backgroundColor: const Color(0xFF3D9ABA),
       body: Center(
-        child: Image.network(
-            'https://a0.muscache.com/pictures/09104ce1-4a66-4284-80b2-ad0ea3e46c24.jpg'),
-      ),
+      child: Image.asset('assets/assests_image.png'),
+     ),
     );
   }
 }

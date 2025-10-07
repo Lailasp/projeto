@@ -17,6 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.all(32),
           child: Column(
@@ -24,7 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Cadastre-se no Airbnb',
+                'Cadastre-se no PulmoVida',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 24),
@@ -48,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFE41D56),
+                  backgroundColor: const Color(0xFF3D9ABA),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8), // <-- Radius
                   ),

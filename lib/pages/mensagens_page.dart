@@ -1,8 +1,6 @@
+import 'package:projeto/widgets/card_propriedade.dart';
+import 'package:projeto/db/propriedades_dao.dart';
 import 'package:flutter/material.dart';
-
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 
 class MensagensPage extends StatefulWidget {
   const MensagensPage({super.key});
@@ -12,137 +10,52 @@ class MensagensPage extends StatefulWidget {
 }
 
 class _MensagensPageState extends State<MensagensPage> {
+  List listaPropriedades = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    listaPropriedades = await PropriedadesDao().listarPropriedades();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF3D9ABA),
-      //appBar: AppBar(
-        //backgroundColor: Color(0xFF3D9ABA),
-      //),
-      body: Column(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      child: Column(
         children: [
-          SizedBox(height: 5),
-          Text(
-            "Mensagens",
+          const Text(
+            'Mensagens',
             style: TextStyle(
               fontSize: 30,
+              fontWeight: FontWeight.w700,
               color: Colors.white,
-              fontWeight: FontWeight.w600,
             ),
           ),
+          const SizedBox(height: 1),
+
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-              ),
-              margin: EdgeInsets.only(top: 10, bottom: 10, left: 7, right: 7),
-              padding: EdgeInsets.all(5),
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: NetworkImage(
-                        'https://static.vecteezy.com/ti/vetor-gratis/p1/1886209-doctor-medical-cartoon-design-vetor.jpg',
-                      ),
-                    ),
-                    title: Text(
-                      'Dr. Carlos João',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF3D9ABA),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'Vamos saber o motivo de seu cansaço essa semana',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFFCACCCC),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(indent: 80, endIndent: 24),
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: NetworkImage(
-                        'https://img.lovepik.com/png/20231112/obgyn-clipart-female-naturopathic-doctor-in-lab-coat-with-cells_572098_wh860.png',
-                      ),
-                    ),
-                    title: Text(
-                      'Dra. Maria Lúcia',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF3D9ABA),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'Vamos marcar sua próxima avaliação para essa semana.',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFFCACCCC),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(indent: 80, endIndent: 24),
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: NetworkImage(
-                        'https://img.pikbest.com/png-images/qiantu/cartoon-female-doctor-original-elements_2537037.png!w700wp',
-                      ),
-                    ),
-                    title: Text(
-                      'Dra. Maria Beatriz',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF3D9ABA),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'Analisei seus gráficos e estão ótimos!',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFFCACCCC),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(indent: 80, endIndent: 24),
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: NetworkImage(
-                        'https://images.vexels.com/content/144170/preview/character-doctor-woman-d6ee7a.png',
-                      ),
-                    ),
-                    title: Text(
-                      'Dra. Mariana Lira',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF3D9ABA),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    subtitle: Text(
-                      'Estou feliz com seu progresso!',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFFCACCCC),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(indent: 80, endIndent: 24),
-                ],
-              ),
-            ),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20)
+                ),
+                margin: EdgeInsets.only(top: 5, bottom: 10, left: 2, right: 2),
+                padding: EdgeInsets.all(1),
+                child: ListView.builder(
+                  itemCount: listaPropriedades.length,
+                  itemBuilder: (context, i) {
+                    return CardPropriedade(
+                      propriedade: listaPropriedades[i],
+                    );
+                  },
+                ),
+              )
           ),
         ],
       ),

@@ -1,7 +1,9 @@
 import 'package:projeto/db/db_helper.dart';
-import 'package:projeto/pages/explore_page.dart' show ExplorePage;
+//import 'package:projeto/pages/explore_page.dart' show ExplorePage;
 import 'package:projeto/pages/mensagens_page.dart' show MensagensPage;
 import 'package:projeto/pages/login_page.dart' show LoginPage;
+import 'package:projeto/pages/resgister_page.dart' show RegisterPage;
+import 'package:projeto/pages/splah_page.dart' show SplashPage;
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,10 +17,10 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
-  int selectedIndex = 2;
+  int selectedIndex = 0;
 
   var pages = [
-    ExplorePage(),
+    Center(child: Text('Pagina 1', style: TextStyle(fontSize: 32))),
     Center(child: Text('Pagina 2', style: TextStyle(fontSize: 32))),
     MensagensPage(),
     Center(child: Text('Pagina 4', style: TextStyle(fontSize: 32))),
@@ -56,45 +58,6 @@ class _HomePage2State extends State<HomePage2> {
       ),
     );
   }
-
-  /*
-  buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      currentIndex: selectedIndex,
-      onTap: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      backgroundColor: Colors.white,
-      unselectedItemColor: Color(0xFF6C6C6C),
-      selectedItemColor: Color(0xFFE41D56),
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Explorer',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          label: 'Wishlist',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.airbnb),
-          label: 'Trips',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.message),
-          label: 'Inbox',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.circleUser),
-          label: 'Profile',
-        ),
-      ],
-    );
-  }*/
 }
 
 
