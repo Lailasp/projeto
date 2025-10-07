@@ -39,6 +39,7 @@ dependencies:
   sqflite:
   path:
   google_fonts: ^6.2.1
+  shared_preferences:
 
 
 dev_dependencies:

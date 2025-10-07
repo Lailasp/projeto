@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Entre ou cadastre-se no Airbnb',
+                'Entre ou cadastre-se no PulmoVida',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 24),
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return HomePage();
+            return HomePage2();
           },
         ),
       );

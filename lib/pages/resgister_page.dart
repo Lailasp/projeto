@@ -1,5 +1,5 @@
-import 'package:aula_913/db/user_dao.dart';
-import 'package:aula_913/domain/user.dart';
+import 'package:projeto/db/user_dao.dart';
+import 'package:projeto/domain/user.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Cadastre-se no PulmoVida',
+                'Cadastre-se no Airbnb',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 24),
@@ -48,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF3D9ABA),
+                  backgroundColor: Color(0xFFE41D56),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8), // <-- Radius
                   ),
