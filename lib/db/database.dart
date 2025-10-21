@@ -1,5 +1,4 @@
-
-
+/*
 import '../domain/propriedade.dart' show Propriedade;
 
 class Database {
@@ -29,4 +28,4 @@ class Database {
       mensagem: 'Estou feliz com seu progresso!',
     ),
   ];
-}
+}*/

@@ -1,6 +1,7 @@
 import 'package:projeto/widgets/card_propriedade.dart';
 import 'package:projeto/db/propriedades_dao.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto/api/propriedades_api.dart';
 
 class MensagensPage extends StatefulWidget {
   const MensagensPage({super.key});
@@ -19,8 +20,9 @@ class _MensagensPageState extends State<MensagensPage> {
   }
 
   loadData() async {
-    listaPropriedades = await PropriedadesDao().listarPropriedades();
-    setState(() {});
+    listaPropriedades = await PropriedadesApi().findAll();
+    //listaPropriedades = await PropriedadesDao().listarPropriedades();
+    //setState(() {});
   }
 
   @override

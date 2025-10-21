@@ -19,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(150),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,11 +32,21 @@ class _RegisterPageState extends State<RegisterPage> {
               TextField(
                 controller: userController,
                 decoration: InputDecoration(
-                  hintText: 'Usuário',
+                  hintText: 'E-mail',
                   focusedBorder: buildUserOutlineInputBorder(),
                   border: buildUserOutlineInputBorder(),
                 ),
               ),
+              const SizedBox(height: 20),
+              TextField(
+                controller: userController,
+                decoration: InputDecoration(
+                  hintText: 'Nome',
+                  focusedBorder: buildUserOutlineInputBorder(),
+                  border: buildUserOutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 20),
               TextField(
                 controller: passwordController,
                 obscureText: true,

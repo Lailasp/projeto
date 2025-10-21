@@ -6,7 +6,8 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: HomePage2(),
+      //home: SplashPage(),
     ),
   );
 }

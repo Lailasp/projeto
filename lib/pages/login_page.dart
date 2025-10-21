@@ -19,17 +19,19 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
+        backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(150),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'PulmoVida',
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-              ),
+            /*Center(
+            child: Text(
+                  'PulmoVida',
+                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                ),
+            ),*/
               SizedBox(height: 24),
               TextField(
                 controller: userController,
@@ -39,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: buildUserOutlineInputBorder(),
                 ),
               ),
+              const SizedBox(height: 20),
               TextField(
                 controller: passwordController,
                 obscureText: true,

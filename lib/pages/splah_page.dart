@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> checkStatus() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 5));
     bool status = await SharedPrefs().getUserStatus();
     if (status) {
       Navigator.pushReplacement(
@@ -46,8 +46,8 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       backgroundColor: const Color(0xFF3D9ABA),
       body: Center(
-      child: Image.asset('assets/assests_image.png'),
-     ),
+        child: Image.asset('assets/assests_image.png'),
+      ),
     );
   }
 }
