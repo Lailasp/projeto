@@ -17,76 +17,84 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(150),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-            /*Center(
-            child: Text(
-                  'PulmoVida',
-                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-                ),
-            ),*/
-              SizedBox(height: 24),
-              TextField(
-                controller: userController,
-                decoration: InputDecoration(
-                  hintText: 'E-mail',
-                  focusedBorder: buildUserOutlineInputBorder(),
-                  border: buildUserOutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Senha',
-                  focusedBorder: buildPasswordOutlineInputBorder(),
-                  border: buildPasswordOutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height: 24),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF3D9ABA),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // <-- Radius
+    return Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        image: DecorationImage(image: AssetImage('assets/assests_image2.png'))
+      ),
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: const EdgeInsets.all(150),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+              /*Center(
+              child: Text(
+                    'PulmoVida',
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                  ),
+              ),*/
+                SizedBox(height: 24),
+                TextField(
+                  controller: userController,
+                  decoration: InputDecoration(
+                    hintText: 'E-mail',
+                    focusedBorder: buildUserOutlineInputBorder(),
+                    border: buildUserOutlineInputBorder(),
                   ),
                 ),
-                onPressed: onPressed,
-                child: Text(
-                  'Acessar',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                const SizedBox(height: 20),
+                TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'Senha',
+                    focusedBorder: buildPasswordOutlineInputBorder(),
+                    border: buildPasswordOutlineInputBorder(),
                   ),
                 ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // <-- Radius
+                SizedBox(height: 24),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF3D9ABA),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // <-- Radius
+                    ),
+                  ),
+                  onPressed: onPressed,
+                  child: Text(
+                    'Acessar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-                onPressed: onPressedRegisterPage,
-                child: Text(
-                  'Criar conta',
-                  style: TextStyle(
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // <-- Radius
+                    ),
+                  ),
+                  onPressed: onPressedRegisterPage,
+                  child: Text(
+                    'Criar conta',
+                    style: TextStyle(
+                      backgroundColor: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
