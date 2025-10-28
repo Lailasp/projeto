@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> checkStatus() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 3));
     bool status = await SharedPrefs().getUserStatus();
     if (status) {
       Navigator.pushReplacement(
@@ -40,7 +40,6 @@ class _SplashPageState extends State<SplashPage> {
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

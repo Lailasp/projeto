@@ -1,13 +1,8 @@
-import 'package:projeto/db/db_helper.dart';
-//import 'package:projeto/pages/explore_page.dart' show ExplorePage;
 import 'package:projeto/pages/mensagens_page.dart' show MensagensPage;
-import 'package:projeto/pages/login_page.dart' show LoginPage;
-import 'package:projeto/pages/resgister_page.dart' show RegisterPage;
-import 'package:projeto/pages/splah_page.dart' show SplashPage;
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:projeto/pages/perfil_page.dart' show PerfilPage;
 
 class HomePage2 extends StatefulWidget {
   const HomePage2({super.key});
@@ -17,13 +12,14 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
-  int selectedIndex = 0;
+  int selectedIndex = 2;
 
   var pages = [
     Center(child: Text('Pagina 1', style: TextStyle(fontSize: 32))),
     Center(child: Text('Pagina 2', style: TextStyle(fontSize: 32))),
     MensagensPage(),
-    Center(child: Text('Pagina 4', style: TextStyle(fontSize: 32))),
+    //Center(child: Text('Pagina 4', style: TextStyle(fontSize: 32))),
+    PerfilPage(),
   ];
 
   @override
@@ -59,5 +55,3 @@ class _HomePage2State extends State<HomePage2> {
     );
   }
 }
-
-

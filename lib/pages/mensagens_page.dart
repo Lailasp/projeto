@@ -42,7 +42,6 @@ class _MensagensPageState extends State<MensagensPage> {
       }
       await Future.delayed(const Duration(milliseconds: 300)); // evita repetição
     }
-
     setState(() => loadingQuotes = false);
   }
 
@@ -73,12 +72,12 @@ class _MensagensPageState extends State<MensagensPage> {
                     const EdgeInsets.symmetric(horizontal: 2, vertical: 5),
                     padding: const EdgeInsets.all(1),
                     child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true, //tamanho da lista para caber apenas nos itens exibidos
+                      physics: const NeverScrollableScrollPhysics(), //desativa o listview dessa parte
                       itemCount: listaPropriedades.length,
                       itemBuilder: (context, i) {
                         final propriedade = listaPropriedades[i];
-                        return InkWell(
+                        return InkWell( //permine clicar no card
                           onTap: () {
                             Navigator.push(
                               context,
@@ -94,7 +93,6 @@ class _MensagensPageState extends State<MensagensPage> {
                   ),
 
                   const SizedBox(height: 20),
-
 
                   Container(
                     padding: const EdgeInsets.all(10),
@@ -124,7 +122,7 @@ class _MensagensPageState extends State<MensagensPage> {
                                 title: Text(
                                   '"${quote.quoteText}"',
                                   style: const TextStyle(
-                                    fontSize: 15,
+                                      fontSize: 15,
                                       fontStyle: FontStyle.italic),
                                 ),
                                 subtitle: Text('- ${quote.quoteAuthor}'),
@@ -135,6 +133,7 @@ class _MensagensPageState extends State<MensagensPage> {
                       ],
                     ),
                   ),
+
                 ],
               ),
             ),

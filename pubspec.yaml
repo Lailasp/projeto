@@ -41,6 +41,9 @@ dependencies:
   google_fonts: ^6.2.1
   shared_preferences:
   dio:
+  google_maps_flutter:
+  geocoding:
+  provider:
 
 
 dev_dependencies:

@@ -6,16 +6,10 @@ class PropriedadesApi {
   String baseUrl = 'https://my-json-server.typicode.com/Lailasp/api-fake-laila';
 
   Future<List<Propriedade>> findAll() async {
-    // Database db = await DBHelper().initDB();
-    // String sql = 'SELECT * FROM PROPRIEDADE;';
-    // var result = await db.rawQuery(sql);
-
     List<Propriedade> listaPropriedades = [];
 
     final response = await dio.get('$baseUrl/properties');
     print(response);
-
-    // await Future.delayed(Duration(seconds: 5));
 
     if (response.statusCode == 200) {
       var result = response.data;
@@ -29,3 +23,15 @@ class PropriedadesApi {
     return listaPropriedades;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// await Future.delayed(Duration(seconds: 5));
