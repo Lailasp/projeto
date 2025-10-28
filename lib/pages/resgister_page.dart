@@ -15,20 +15,27 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/assests_image2.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         body: Padding(
-          padding: const EdgeInsets.all(150),
+          padding: const EdgeInsets.all(70),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              /*Text(
                 'Cadastre-se no PulmoVida',
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 24),
+              ),*/
+              SizedBox(height: 14),
               TextField(
                 controller: userController,
                 decoration: InputDecoration(
@@ -37,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   border: buildUserOutlineInputBorder(),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               TextField(
                 controller: userController,
                 decoration: InputDecoration(
@@ -46,7 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   border: buildUserOutlineInputBorder(),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -78,6 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       ),
+    ),
     );
   }
 
