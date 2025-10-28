@@ -1,6 +1,7 @@
 import 'package:projeto/db/user_dao.dart';
 import 'package:projeto/pages/resgister_page.dart';
 import 'package:flutter/material.dart';
+import 'package:projeto/pages/mensagens_page.dart';
 
 import 'home_page.dart';
 
@@ -18,22 +19,22 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 200,
       decoration: BoxDecoration(
-        color: Colors.amber,
-        image: DecorationImage(image: AssetImage('assets/assests_image2.png'))
+        image: DecorationImage(
+          image: AssetImage('assets/assests_image2.png'),
+          fit: BoxFit.cover,
+        ),
       ),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: const EdgeInsets.all(150),
+            padding: const EdgeInsets.all(70),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-              /*Center(
+                /*Center(
               child: Text(
                     'PulmoVida',
                     style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     border: buildUserOutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -58,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                     border: buildPasswordOutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 10),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF3D9ABA),
@@ -66,13 +67,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(8), // <-- Radius
                     ),
                   ),
-                  onPressed: onPressed,
+                  onPressed: onPressedMensagensPage,
                   child: Text(
                     'Acessar',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: 15,
                     ),
                   ),
                 ),
@@ -89,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       backgroundColor: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: 15,
                     ),
                   ),
                 ),
@@ -134,6 +135,17 @@ class _LoginPageState extends State<LoginPage> {
       borderRadius: BorderRadius.vertical(
         top: Radius.circular(8),
       ),
+    );
+  }
+
+  void onPressedMensagensPage() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return MensagensPage();
+          },
+        ),
     );
   }
 
