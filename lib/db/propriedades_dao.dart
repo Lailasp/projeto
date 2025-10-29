@@ -1,5 +1,5 @@
-import 'package:projeto/db_helper.dart';
-import 'package:projeto/propriedades.dart';
+import 'package:projeto/db/db_helper.dart';
+import 'package:projeto/Domain/propriedades.dart';
 import 'package:sqflite/sqflite.dart';
 
 

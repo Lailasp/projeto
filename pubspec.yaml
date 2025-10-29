@@ -57,6 +57,7 @@ dependencies:
   sqflite:
   path:
   sqflite_common_ffi: ^2.3.0
+  dio:
 
 
 

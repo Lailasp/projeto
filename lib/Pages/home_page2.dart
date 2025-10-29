@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
-import 'package:projeto/explore_page.dart';
+import 'package:projeto/Pages/explore_page.dart';
 
 
 class HomePage2 extends StatefulWidget {
@@ -57,5 +57,3 @@ class _HomePage2State extends State<HomePage2> {
     );
   }
 }
-
-
