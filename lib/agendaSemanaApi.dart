@@ -1,38 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projeto/api/agendamento_api.dart';
+import 'package:projeto/api/feriados_api.dart';
+import 'package:projeto/domain/feriados.dart';
+import 'package:projeto/widgets/card_feriados.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
-import 'package:projeto/domain/agendamento.dart';
-import 'package:projeto/api/agendamento_api.dart';
-import 'package:projeto/widgets/card_agendamento.dart';
-
-class AgendaSemana extends StatefulWidget {
-  const AgendaSemana({super.key});
+class AgendaSemanaApi extends StatefulWidget {
+  const AgendaSemanaApi({super.key});
 
   @override
-  State<AgendaSemana> createState() => _AgendaSemanaState();
+  State<AgendaSemanaApi> createState() => _AgendaSemanaApiState();
 }
 
-class _AgendaSemanaState extends State<AgendaSemana> {
+class _AgendaSemanaApiState extends State<AgendaSemanaApi> {
   int selectedIndex = 1;
-
-
-  //List<Agendamento> agendamentosDoDia = [];
 
   @override
   void initState() {
     super.initState();
-    _loadAgendamentos();
+    _loadDadosApi();
   }
 
-  late Future<List<Agendamento>> futurelistaAgendamento;
+  late Future<List<Feriados>> futurelistaFeriados;
 
-  _loadAgendamentos() async {
-
-    futurelistaAgendamento = AgendamentoApi().findAll();
-    //String dataSelecionada = "2025-04-14";
-    //agendamentosDoDia = await AgendamentosApi().getAgendamentosPorData(dataSelecionada);
+  _loadDadosApi() async {
+    futurelistaFeriados = FeriadosApi().getFeriadosDoAno("2025");
 
     setState(() {
     });
@@ -121,72 +113,70 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                     ),
                   ),
                   SizedBox(height: 15),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-
-                      Column(
-                        children: [
-                          Text("DOM", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("13", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF3D9ABA),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Column(
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
                           children: [
-                            Text("SEG", style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold,),),
+                            Text("DOM", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
                             SizedBox(height: 8),
-                            Text("14", style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold,),),
+                            Text("13", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
                           ],
                         ),
-                      ),
-                      Column(
-                        children: [
-                          Text("TER", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("15", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("QUA", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("16", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("QUI", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("17", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("SEX", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("18", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("SAB", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
-                          SizedBox(height: 8),
-                          Text("19", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
-                        ],
-                      ),
-                    ],
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                          decoration: BoxDecoration(
+                            color: Color(0xFF3D9ABA),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            children: [
+                              Text("SEG", style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold,),),
+                              SizedBox(height: 8),
+                              Text("14", style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold,),),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Text("TER", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("15", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text("QUA", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("16", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text("QUI", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("17", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text("SEX", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("18", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text("SAB", style: TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold,),),
+                            SizedBox(height: 8),
+                            Text("19", style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold,),),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
 
                   SizedBox(height: 10),
                   Row(
@@ -198,7 +188,7 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                         color: Colors.grey,
                       ),
                       Text(
-                        "Hoje 14",
+                        "Feriados 2025",
                         style: TextStyle(
                             color: Color(0xFF3d9aba),
                             fontSize: 17,
@@ -216,16 +206,17 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                   Container(
                     width: double.infinity,
                     height: 275,
-                    child: FutureBuilder<List<Agendamento>>(
-                      future: futurelistaAgendamento,
+                    child: FutureBuilder<List<Feriados>>(
+                      future: futurelistaFeriados,
                       builder: (context, snapshot) {
-                        List<Agendamento> lista = snapshot.requireData;
-                        return ListView.builder(
-                          itemCount: lista.length,
-                          itemBuilder: (context, i) {
-                            return CardAgendamento(agendamento: lista[i]);
-                          },
-                        );
+                          List<Feriados> lista = snapshot.data!;
+
+                          return ListView.builder(
+                            itemCount: lista.length,
+                            itemBuilder: (context, i) {
+                              return CardFeriados(feriados: lista[i]);
+                            },
+                          );
                       },
                     ),
                   ),
@@ -369,6 +360,4 @@ class _AgendaSemanaState extends State<AgendaSemana> {
       ),
     );
   }
-
-
 }
