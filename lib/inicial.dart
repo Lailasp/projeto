@@ -3,6 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 import 'package:projeto/domain/lembretes.dart';
 import 'package:projeto/db/lembretes_dao.dart';
+import 'package:projeto/domain/dicas.dart';
+import 'package:projeto/api/dicas_api.dart';
+import 'package:projeto/domain/tarefa.dart';
+import 'package:projeto/api/tarefa_api.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -14,11 +18,16 @@ class Inicial extends StatefulWidget {
 class _InicialState extends State<Inicial> {
   int selectedIndex = 0;
   List<Lembretes> listaLembretes = [];
+  late Future<Dicas> futureDica;
+  late Future<List<Tarefa>> futureTarefas;
 
   @override
   void initState() {
     super.initState();
     loadData();
+
+    futureDica = DicasApi().getDicas();
+    futureTarefas = TarefaApi().getTarefas();
   }
 
   loadData() async {
@@ -70,11 +79,12 @@ class _InicialState extends State<Inicial> {
   }
 
   buildBody() {
-    return Padding(
+    return SingleChildScrollView(
+      child: Padding(
       padding: EdgeInsets.all(8.0),
       child: Container(
         padding: EdgeInsets.all(8.0),
-        height: double.infinity,
+        //height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -312,134 +322,140 @@ class _InicialState extends State<Inicial> {
                         );
                       },
                     ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  /*
-                  Container(
-                    padding: EdgeInsets.only(right: 16, left: 16, top: 2, bottom: 2),
-                    width: double.infinity,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.network(
-                              "https://cdn-icons-png.flaticon.com/512/1998/1998221.png", height: 40,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Quimioterapia", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                Text("15:00", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: FaIcon(FontAwesomeIcons.bell, color: Colors.white,),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    padding: EdgeInsets.only(right: 16, left: 16, top: 2, bottom: 2),
-                    width: double.infinity,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.network(
-                              "https://cdn-icons-png.flaticon.com/512/1998/1998221.png", height: 40,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Paclitaxel", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                Text("19:00", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: FaIcon(FontAwesomeIcons.bell, color: Colors.white,),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    padding: EdgeInsets.only(right: 16, left: 16, top: 2, bottom: 2),
-                    width: double.infinity,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.network(
-                              "https://cdn-icons-png.flaticon.com/512/1998/1998221.png", height: 40,
-                            ),
-                            SizedBox(width: 10,),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Consulta com pneumologista", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                Text("19:30", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: FaIcon(FontAwesomeIcons.bell, color: Colors.white,),
-                        ),
-                      ],
-                    ),
-                  ),*/
-                ],
+                  ],
+                ),
               ),
+            buildDicasSection(),
+            buildTarefasSection(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildDicasSection() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Color(0xFFF0F8FF),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Color(0xFFc3ebf8), width: 2),
+        ),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Dica de Conhecimento",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color(0xFF3d9aba),
+              ),
+            ),
+            SizedBox(height: 10),
+
+            FutureBuilder<Dicas>(
+              future: futureDica,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('${snapshot.error}'));
+
+                } else if (snapshot.hasData) {
+
+                  Dicas dica = snapshot.data!;
+
+                  return Container(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Text(
+                      dica.texto,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                        fontSize: 15,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  );
+                }
+                return Container();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTarefasSection() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Color(0xFFF0F8FF),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Color(0xFFc3ebf8), width: 2),
+        ),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Cuidados Diários",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color(0xFF3d9aba),
+              ),
+            ),
+            SizedBox(height: 10),
+
+            FutureBuilder<List<Tarefa>>(
+              future: futureTarefas,
+              builder: (context, snapshot) {
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Erro ao buscar tarefas: ${snapshot.error}'));
+                } else if (snapshot.hasData) {
+                  List<Tarefa> tarefas = snapshot.data!;
+
+                  return ListView.builder(
+                    itemCount: tarefas.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      Tarefa tarefa = tarefas[index];
+                      return Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: [
+                            Image.network(tarefa.iconeUrl, width: 30),
+                            SizedBox(width: 15),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(tarefa.titulo, style: TextStyle(fontWeight: FontWeight.bold)),
+                                Text(tarefa.horario, style: TextStyle(color: Colors.grey[700])),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }
+                return Container();
+              },
             ),
           ],
         ),
