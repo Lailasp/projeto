@@ -209,14 +209,16 @@ class _AgendaSemanaApiState extends State<AgendaSemanaApi> {
                     child: FutureBuilder<List<Feriados>>(
                       future: futurelistaFeriados,
                       builder: (context, snapshot) {
-                          List<Feriados> lista = snapshot.data!;
-
+                        if (snapshot.hasData){
+                          List<Feriados> lista = snapshot.requireData;
                           return ListView.builder(
                             itemCount: lista.length,
                             itemBuilder: (context, i) {
                               return CardFeriados(feriados: lista[i]);
                             },
                           );
+                        }
+                        return Center(child: CircularProgressIndicator(),);
                       },
                     ),
                   ),

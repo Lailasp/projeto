@@ -219,13 +219,16 @@ class _AgendaSemanaState extends State<AgendaSemana> {
                     child: FutureBuilder<List<Agendamento>>(
                       future: futurelistaAgendamento,
                       builder: (context, snapshot) {
-                        List<Agendamento> lista = snapshot.requireData;
-                        return ListView.builder(
-                          itemCount: lista.length,
-                          itemBuilder: (context, i) {
-                            return CardAgendamento(agendamento: lista[i]);
-                          },
-                        );
+                        if (snapshot.hasData){
+                          List<Agendamento> lista = snapshot.requireData;
+                          return ListView.builder(
+                            itemCount: lista.length,
+                            itemBuilder: (context, i) {
+                              return CardAgendamento(agendamento: lista[i]);
+                            },
+                          );
+                        }
+                        return Center(child: CircularProgressIndicator(),);
                       },
                     ),
                   ),
