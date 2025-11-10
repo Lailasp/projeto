@@ -8,7 +8,6 @@ class FeriadosApi {
   Future<List<Feriados>> getFeriadosDoAno(String ano) async {
     final response = await dio.get('$baseUrl/feriados/v1/$ano');
 
-
     List<Feriados> lista = [];
 
       for (var json in response.data) {

@@ -11,7 +11,6 @@ class AgendamentoApi {
     List<Agendamento> listaAgendamento = [];
 
     final response = await dio.get('$baseUrl/scheduling');
-    print(response);
 
     if (response.statusCode == 200) {
       var result = response.data;
