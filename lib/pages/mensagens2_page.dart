@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:projeto/api/propriedades_api.dart';
+import 'package:projeto/pages/google_maps_page.dart';
 
 
 class Mensagens2Page extends StatefulWidget {
@@ -41,6 +43,11 @@ class _Mensagens2PageState extends State<Mensagens2Page> {
   }
 
   AppBar _buildAppBar() {
+    // Coordenadas fixas para a navegação
+    const latitude = -9.753270385907115;
+    const longitude = -36.66119619253641;
+    final position = LatLng(latitude, longitude);
+
     return AppBar(
       backgroundColor: const Color(0xFF3D9ABA),
       titleSpacing: 0,
@@ -67,6 +74,21 @@ class _Mensagens2PageState extends State<Mensagens2Page> {
           ),
         ],
       ),
+      // AÇÃO DO MAPA IMPLEMENTADA DIRETAMENTE AQUI
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.location_on, color: Colors.white),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => GoogleMapsPage(position: position),
+              ),
+            );
+          },
+        ),
+        const SizedBox(width: 5),
+      ],
     );
   }
 
