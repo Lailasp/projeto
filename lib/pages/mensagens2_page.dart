@@ -44,8 +44,8 @@ class _Mensagens2PageState extends State<Mensagens2Page> {
 
   AppBar _buildAppBar() {
     // Coordenadas fixas para a navegação
-    const latitude = -9.753270385907115;
-    const longitude = -36.66119619253641;
+    const latitude = -9.922842720540832;
+    const longitude = -36.472142390214614;
     final position = LatLng(latitude, longitude);
 
     return AppBar(
