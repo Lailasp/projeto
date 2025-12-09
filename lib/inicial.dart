@@ -7,6 +7,9 @@ import 'package:projeto/domain/dicas.dart';
 import 'package:projeto/api/dicas_api.dart';
 import 'package:projeto/domain/tarefa.dart';
 import 'package:projeto/api/tarefa_api.dart';
+import 'package:projeto/pages/perfil_page.dart';
+import 'package:provider/provider.dart';
+import 'package:projeto/providers/humor_providers.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -20,14 +23,21 @@ class _InicialState extends State<Inicial> {
   List<Lembretes> listaLembretes = [];
   late Future<Dicas> futureDica;
   late Future<List<Tarefa>> futureTarefas;
+  late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(initialPage: selectedIndex);
     loadData();
 
     futureDica = DicasApi().getDicas();
     futureTarefas = TarefaApi().getTarefas();
+  }
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   loadData() async {
@@ -37,27 +47,54 @@ class _InicialState extends State<Inicial> {
     });
   }
 
+  void registrarHumor(String humor) {
+    context.read<HumorProvider>().definirHumor(humor);
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text("Humor '$humor' registrado!"),
+      backgroundColor: Color(0xFF3d9aba),
+      duration: Duration(seconds: 1),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF3d9aba),
         appBar: buildAppBar(),
-        body: buildBody(),
+
+        body: PageView(
+          controller: _pageController,
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            buildHomeBody(),
+            Container(color: Colors.white, child: Center(child: Text("Agenda"))),
+            Container(color: Colors.white, child: Center(child: Text("Mensagens"))),
+            PerfilPage(),
+          ],
+        ),
+
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
           child: SlidingClippedNavBar(
             backgroundColor: Colors.white,
-            onButtonPressed: (index) {},
+            onButtonPressed: (index) {
+              setState(() {
+                selectedIndex = index;
+              });
+              _pageController.animateToPage(
+                  selectedIndex,
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeOutQuad
+              );
+            },
             iconSize: 25,
             activeColor: Color(0xFF3D9ABA),
             selectedIndex: selectedIndex,
             barItems: [
               BarItem(icon: FontAwesomeIcons.house, title: 'Diário'),
-              BarItem(
-                icon: FontAwesomeIcons.solidCalendarDays,
-                title: 'Agenda',
-              ),
+              BarItem(icon: FontAwesomeIcons.solidCalendarDays, title: 'Agenda'),
               BarItem(icon: FontAwesomeIcons.solidMessage, title: 'Mensagens'),
               BarItem(icon: FontAwesomeIcons.solidCircleUser, title: 'Perfil'),
             ],
@@ -78,13 +115,12 @@ class _InicialState extends State<Inicial> {
     );
   }
 
-  buildBody() {
+  buildHomeBody() {
     return SingleChildScrollView(
       child: Padding(
       padding: EdgeInsets.all(8.0),
       child: Container(
         padding: EdgeInsets.all(8.0),
-        //height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -92,46 +128,21 @@ class _InicialState extends State<Inicial> {
         ),
         child: Column(
           children: [
-            Text(
-              "Check-in diário",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "Como você está se sentindo hoje?",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+            Text("Check-in diário", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+            Text("Como você está se sentindo hoje?", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: FaIcon(FontAwesomeIcons.faceSadCry, size: 50,),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: FaIcon(FontAwesomeIcons.faceSadTear, size: 50,),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: FaIcon(FontAwesomeIcons.faceMeh, size: 50,),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: FaIcon(FontAwesomeIcons.faceSmile, size: 50,),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: FaIcon(FontAwesomeIcons.faceLaugh, size: 50,),
-                ),
+                IconButton(onPressed: () => registrarHumor("Muito Triste"), icon: FaIcon(FontAwesomeIcons.faceSadCry, size: 50, color: Colors.black)),
+                IconButton(onPressed: () => registrarHumor("Triste"), icon: FaIcon(FontAwesomeIcons.faceSadTear, size: 50, color: Colors.black)),
+                IconButton(onPressed: () => registrarHumor("Normal"), icon: FaIcon(FontAwesomeIcons.faceMeh, size: 50, color: Colors.black)),
+                IconButton(onPressed: () => registrarHumor("Feliz"), icon: FaIcon(FontAwesomeIcons.faceSmile, size: 50, color: Colors.black)),
+                IconButton(onPressed: () => registrarHumor("Muito Feliz"), icon: FaIcon(FontAwesomeIcons.faceLaugh, size: 50, color: Colors.black)),
               ],
             ),
-
-            Divider(height: 25,),
-            Text(
-              "Registre seus sintomas",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            Divider(height: 25),
+            Text("Registre seus sintomas", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
 
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
