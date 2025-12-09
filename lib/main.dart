@@ -1,13 +1,18 @@
-import 'package:projeto/agenda.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto/agendaSemana.dart';
-import 'package:projeto/agendaSemanaApi.dart';
+import 'package:provider/provider.dart'; // Importe o pacote
+import 'package:projeto/pages/agendaMes.dart';
+import 'package:projeto/provider/agenda_provider.dart'; // Importe seu novo provider
 
 void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AgendaSemanaApi(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AgendaProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: AgendaMes(),
+      ),
     ),
   );
 }

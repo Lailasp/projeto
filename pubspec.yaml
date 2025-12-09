@@ -45,6 +45,8 @@ dependencies:
   sliding_clipped_nav_bar:
   http: ^1.5.0
   dio: ^5.9.0
+  geocoding:
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:
