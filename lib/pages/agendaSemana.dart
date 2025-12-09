@@ -37,7 +37,8 @@ class _AgendaSemanaState extends State<AgendaSemana> {
   @override
   Widget build(BuildContext context) {
 
-    final agendaProvider = Provider.of<AgendaProvider>(context);
+    final agendaProvider = context.watch<AgendaProvider>();
+
     DateTime dataAtual = agendaProvider.dataSelecionada;
 
     return SafeArea(

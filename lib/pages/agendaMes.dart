@@ -42,7 +42,7 @@ class _AgendaMesState extends State<AgendaMes> {
 
   @override
   Widget build(BuildContext context) {
-    final agendaProvider = Provider.of<AgendaProvider>(context);
+    final agendaProvider = context.watch<AgendaProvider>();
 
     return SafeArea(
         child: Scaffold(
@@ -136,7 +136,6 @@ class _AgendaMesState extends State<AgendaMes> {
                     ),
                   ),
 
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(
@@ -163,7 +162,7 @@ class _AgendaMesState extends State<AgendaMes> {
                             return GestureDetector(
                               onTap: () {
                                 DateTime novaData = DateTime(2025, 4, diaNumero);
-                                provider.setDataSelecionada(novaData);
+                                context.read<AgendaProvider>().setDataSelecionada(novaData);
                               },
                               child: Center(
                                 child: Container(
@@ -212,7 +211,7 @@ class _AgendaMesState extends State<AgendaMes> {
                         if (snapshot.hasData){
                           List<Agendamento> lista = snapshot.requireData;
 
-                          String dataFormatada = "2025-04-${provider.dataSelecionada.day.toString().padLeft(2, '0')}";
+                          String dataFormatada = "2025-04-${provider.dataSelecionada.day.toString()}";
 
                           var listaFiltrada = lista.where((element) => element.data == dataFormatada).toList();
 
